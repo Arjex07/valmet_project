@@ -205,3 +205,27 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Ignorar carpetas de salida automática
+VALMET_OUTPUT/
+output_results/
+
+# Ignorar archivos temporales o backups
+*.zip
+*.csv
+*.html
+*.png
+
+# Ignorar entorno virtual de Python si existiera
+.venv/
+.venv_streamlit/
+env/
+venv/
+
+# Archivos de sistema
+.DS_Store
+*.swp
+
+# Ejecutables o accesos directos
+*.command
+*.bat
