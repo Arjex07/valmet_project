@@ -1,5 +1,0 @@
-Variable;Media;Mediana;Mínimo;Máximo;Desviación estándar;P5;P95;Cantidad de datos válidos
-Velocidad del Viento [m/s];2.90;1.75;0.02;905.00;18.44;0.33;4.54;8594
-Dirección del Viento [°];166.41;172.54;0.00;359.97;80.66;16.22;333.83;8594
-Temperatura [°C];-256.97;-258.48;-1061.15;604.85;25.83;-269.93;-243.48;8579
-Altura de Mezcla [m];100.00;100.00;100.00;100.00;0.00;100.00;100.00;8594
