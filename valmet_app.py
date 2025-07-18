@@ -170,4 +170,7 @@ st.markdown(
     - **Vectores Promedio del Viento:** Vectores de viento promedio por hora para cada mes.
     - **Tablas Resumen:** Estadísticas clave (media, mediana, min, max, P5, P95, desviación estándar, cantidad de datos válidos) por variable.
     """
+if __name__ == "__main__":
+    import os
+    os.system("streamlit run valmet_app.py")
 )
