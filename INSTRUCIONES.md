@@ -14,6 +14,7 @@ source .venv_streamlit/bin/activate
 pip install streamlit pandas matplotlib seaborn windrose
 # Instala cualquier otra dependencia que necesites, por ejemplo:
 # pip install openpyxl # Si trabajas con archivos .xlsx
+```
 ---
 
 ## **Método de Ejecución Recomendado (Script)**
