@@ -2,7 +2,7 @@
 
 # Ruta absoluta a tu proyecto. Asegúrate de que esta ruta sea correcta.
 # Puedes obtenerla escribiendo 'pwd' en tu terminal cuando estés en la carpeta 'valmet_project'.
-PROJECT_DIR="/Users/josechavezperez/Documents/valmet_project"
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Cambia al directorio del proyecto
 cd "$PROJECT_DIR"
