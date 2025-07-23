@@ -3,7 +3,6 @@ import streamlit as st
 import os
 import sys
 from datetime import datetime
-import shutil # Para manejar directorios de manera más robusta
 
 # Asegura que Python encuentre valmet_analisis.py
 # Añadimos la ruta absoluta para mayor robustez, aunque 'sys.path.append('.')' ya ayuda
