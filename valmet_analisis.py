@@ -8,30 +8,20 @@ import seaborn as sns
 from windrose import WindroseAxes
 import os
 import zipfile
-import glob
 import datetime
 import matplotlib.colors
 from matplotlib.colors import BoundaryNorm, Normalize
 from matplotlib.ticker import MaxNLocator
-import calendar 
 # from plotly.subplots import make_subplots # No necesario si no usamos Plotly
 # import plotly.graph_objects as go # No necesario si no usamos Plotly
 
 # pio.templates.default = "plotly_white" # No necesario si no usamos Plotly
 
-print("valmet_analisis.py: Script cargado.")
 
 def celsius_from_kelvin(temp_k):
     """Convierte temperatura de Kelvin a Celsius."""
     return temp_k - 273.15
 
-def create_output_directory(base_dir="VALMET_OUTPUT"):
-    """Crea un directorio de salida único con marca de tiempo."""
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_dir = os.path.join(base_dir, f"analisis_{timestamp}")
-    os.makedirs(output_dir, exist_ok=True)
-    print(f"valmet_analisis.py: Directorio de salida creado: {output_dir}")
-    return output_dir
 
 def generate_time_series_plots(df, output_dir, palette_name, project_title):
     """Genera gráficos de series temporales para ws, wd, temp_C, mixing_height_m usando Matplotlib."""
@@ -545,4 +535,3 @@ def run_analysis(csv_file_path, output_dir, palette_name, project_title):
         print(error_msg)
         return None, None 
 
-print("valmet_analisis.py: Script principal de análisis definido.")
