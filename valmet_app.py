@@ -73,8 +73,9 @@ with st.sidebar:
         """
     )
     file_input = st.file_uploader(
-        "1. Sube tu archivo CSV (requiere columnas 'date', 'ws', 'wd', 'temp_K' y opcionalmente 'mixing_height_m')",
-        type=["csv"]
+        "Arrastra y suelta el archivo aquí\nLímite 200MB por archivo • CSV",
+        type=["csv"],
+        help="1. Sube tu archivo CSV (requiere columnas 'date', 'ws', 'wd', 'temp_K' y opcionalmente 'mixing_height_m')"
     )
     project_title_input = st.text_input(
         "2. Título para el Análisis",
