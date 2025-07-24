@@ -168,16 +168,15 @@ else:
     # Mensaje inicial si no se ha ejecutado el análisis
     st.info("Presiona 'Generar Análisis' en la barra lateral para comenzar. ➡️")
 
-st.markdown(
-    """
-    ---
-    ### ✨ Tipos de Gráficos y Reportes Generados:
-    - **Series Temporales:** Velocidad del viento, dirección del viento, temperatura y altura de mezcla.
-    - **Ciclos Diarios:** Velocidad del viento, temperatura y altura de mezcla, mostrando promedio y rangos P5-P95.
-    - **Rosas de los Vientos:** Se generan múltiples rosas del viento para las diferentes direcciones y velocidades.
-    - **Mapa de Calor (Dirección vs. Hora):** Frecuencia de la dirección del viento por hora del día.
-    - **Mapas de Calor Anuales:** Promedios anuales por hora del día y día del año para velocidad del viento, dirección del viento y temperatura.
-    - **Vectores Promedio del Viento:** Vectores de viento promedio por hora para cada mes.
-    - **Tablas Resumen:** Estadísticas clave (media, mediana, min, max, P5, P95, desviación estándar, cantidad de datos válidos) por variable.
-    """
-)
+with st.expander("Tipos de Gráficos y Reportes Generados"):
+    st.markdown(
+        """
+        - **Series Temporales:** Velocidad del viento, dirección del viento, temperatura y altura de mezcla.
+        - **Ciclos Diarios:** Velocidad del viento, temperatura y altura de mezcla, mostrando promedio y rangos P5-P95.
+        - **Rosas de los Vientos:** Se generan múltiples rosas del viento para las diferentes direcciones y velocidades.
+        - **Mapa de Calor (Dirección vs. Hora):** Frecuencia de la dirección del viento por hora del día.
+        - **Mapas de Calor Anuales:** Promedios anuales por hora del día y día del año para velocidad del viento, dirección del viento y temperatura.
+        - **Vectores Promedio del Viento:** Vectores de viento promedio por hora para cada mes.
+        - **Tablas Resumen:** Estadísticas clave (media, mediana, min, max, P5, P95, desviación estándar, cantidad de datos válidos) por variable.
+        """
+    )
