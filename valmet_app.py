@@ -9,6 +9,7 @@ from datetime import datetime
 current_dir = os.path.dirname(__file__)
 if current_dir not in sys.path:
     sys.path.append(current_dir)
+icon_path = os.path.join(current_dir, "icon.png")
 
 try:
     from valmet_analisis import run_analysis
@@ -22,7 +23,7 @@ st.set_page_config(
     page_title="VALMET-GUI",
     layout="wide",
     initial_sidebar_state="expanded",
-    page_icon="icon.png"
+    page_icon=icon_path
 )
 
 # Muestra el icono en la propia interfaz
@@ -61,7 +62,7 @@ st.write(
 # --- Controles de Entrada (SideBar) ---
 with st.sidebar:
     st.markdown(
-        "<div style='text-align:center'><img src='icon.png' width='80'></div>",
+        f"<div style='text-align:center'><img src='{icon_path}' width='80'></div>",
         unsafe_allow_html=True,
     )
     st.header("Configuración del Análisis")
