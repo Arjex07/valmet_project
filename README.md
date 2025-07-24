@@ -27,6 +27,10 @@ editar los colores en `.streamlit/config.toml`.
 Para ejecutar las pruebas automatizadas utiliza:
 
 ```bash
+pip install -r requirements.txt -r requirements-dev.txt
+```
+
+```bash
 pytest tests/test_run_analysis.py
 ```
 
