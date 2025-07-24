@@ -80,7 +80,7 @@ st.write(
 
 # --- Controles de Entrada (SideBar) ---
 with st.sidebar:
-    st.image(icon_path, width=80)
+    st.image(icon_path, width=150)
     st.header("Configuración del Análisis")
     st.markdown(
         """
