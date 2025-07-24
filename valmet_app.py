@@ -90,6 +90,11 @@ with st.sidebar:
     st.markdown(
         """
         <style>
+        div[data-testid="stSidebar"] img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
         div[data-testid="stSidebar"] .stButton > button {
             display: block;
             margin-left: auto;
