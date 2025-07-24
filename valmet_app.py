@@ -108,10 +108,16 @@ if run_button:
                     project_title_input
                 )
 
-                st.session_state.zip_download_path = zip_file_path
-                st.session_state.summary_html_content = summary_html_content
-                st.session_state.analysis_run_completed = True
-                st.success("Análisis completado exitosamente! 🎉")
+                if zip_file_path:
+                    st.session_state.zip_download_path = zip_file_path
+                    st.session_state.summary_html_content = summary_html_content
+                    st.session_state.analysis_run_completed = True
+                    st.success("Análisis completado exitosamente! 🎉")
+                else:
+                    st.session_state.analysis_error = (
+                        "La función run_analysis no generó un archivo ZIP de resultados. "
+                        "Por favor, verifica que los datos de entrada sean válidos."
+                    )
 
             except Exception as e:
                 st.session_state.analysis_error = f"Ocurrió un error durante el análisis: {e}"
