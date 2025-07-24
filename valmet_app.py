@@ -26,6 +26,37 @@ st.set_page_config(
     page_icon=icon_path
 )
 
+# Colores de la interfaz
+BACKGROUND_COLOR = "#2F2740"
+SIDEBAR_COLOR = "#140D40"
+TEXT_COLOR = "#D9CDBF"
+BUTTON_COLOR = "#594C3C"
+ACCENT_COLOR = "#A6998F"
+
+# Estilos personalizados para aplicar la paleta corporativa
+st.markdown(
+    f"""
+    <style>
+        .stApp {{
+            background-color: {BACKGROUND_COLOR};
+            color: {TEXT_COLOR};
+        }}
+        div[data-testid="stSidebar"] {{
+            background-color: {SIDEBAR_COLOR};
+            color: {TEXT_COLOR};
+        }}
+        div[data-testid="stSidebar"] .stButton>button {{
+            background-color: {BUTTON_COLOR};
+            color: {TEXT_COLOR};
+        }}
+        h1, h2, h3, h4, h5, h6 {{
+            color: {ACCENT_COLOR};
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Muestra el icono en la propia interfaz
 #
 # Paletas de colores disponibles (las mismas que usas)
