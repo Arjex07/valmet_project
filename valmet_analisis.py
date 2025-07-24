@@ -533,5 +533,5 @@ def run_analysis(csv_file_path, output_dir, palette_name, project_title):
     except Exception as e:
         error_msg = f"Ocurrió un error inesperado durante el procesamiento o la generación: {e}. Por favor, revisa el formato de tus datos."
         print(error_msg)
-        return None, None 
+        raise
 
