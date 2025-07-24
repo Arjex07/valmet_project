@@ -27,19 +27,7 @@ st.set_page_config(
 )
 
 # Muestra el icono en la propia interfaz
-# Estilos simples para una apariencia más limpia
-st.markdown(
-    """
-    <style>
-        .main { background-color: #F7F7F7; }
-        h1 { color: #4CAF50; }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-
-
+#
 # Paletas de colores disponibles (las mismas que usas)
 PALETTES = [
     "viridis", "plasma", "inferno", "magma", "cividis",
