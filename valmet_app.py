@@ -88,6 +88,19 @@ with st.sidebar:
         index=PALETTES.index("viridis") # Valor por defecto
     )
 
+    st.markdown(
+        """
+        <style>
+        div[data-testid="stSidebar"] .stButton > button {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
     run_button = st.button("🚀 Generar Análisis")
 
 # --- Lógica del Botón y Salida ---
