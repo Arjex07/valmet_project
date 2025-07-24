@@ -81,9 +81,9 @@ if run_button:
         with st.spinner("Analizando datos y generando gráficos... Esto puede tardar unos minutos."):
             temp_csv_path = None
             output_directory = None
+            temp_data_dir = os.path.join(current_dir, "temp_data_upload")
             try:
                 # --- Guarda el archivo subido temporalmente ---
-                temp_data_dir = os.path.join(current_dir, "temp_data_upload")
                 os.makedirs(temp_data_dir, exist_ok=True)
                 temp_csv_path = os.path.join(temp_data_dir, file_input.name)
                 with open(temp_csv_path, "wb") as f:
