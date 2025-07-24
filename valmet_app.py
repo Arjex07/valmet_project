@@ -61,10 +61,7 @@ st.write(
 
 # --- Controles de Entrada (SideBar) ---
 with st.sidebar:
-    st.markdown(
-        f"<div style='text-align:center'><img src='{icon_path}' width='80'></div>",
-        unsafe_allow_html=True,
-    )
+    st.image(icon_path, width=80)
     st.header("Configuración del Análisis")
     st.markdown(
         """
