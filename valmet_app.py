@@ -32,6 +32,7 @@ SIDEBAR_COLOR = "#140D40"
 TEXT_COLOR = "#D9CDBF"
 BUTTON_COLOR = "#594C3C"
 ACCENT_COLOR = "#A6998F"
+FILE_TEXT_COLOR = "#1A1A1A"
 
 # Estilos personalizados para aplicar la paleta corporativa
 st.markdown(
@@ -48,6 +49,9 @@ st.markdown(
         div[data-testid="stSidebar"] .stButton>button {{
             background-color: {BUTTON_COLOR};
             color: {TEXT_COLOR};
+        }}
+        div[data-testid="stSidebar"] .stFileUploader span {{
+            color: {FILE_TEXT_COLOR};
         }}
         h1, h2, h3, h4, h5, h6 {{
             color: {ACCENT_COLOR};
