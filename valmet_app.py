@@ -26,6 +26,37 @@ st.set_page_config(
     page_icon=icon_path
 )
 
+# Colores de la interfaz
+BACKGROUND_COLOR = "#2F2740"
+SIDEBAR_COLOR = "#594C3C"
+TEXT_COLOR = "#D9CDBF"
+BUTTON_COLOR = "#594C3C"
+ACCENT_COLOR = "#A6998F"
+
+# Estilos personalizados para aplicar la paleta corporativa
+st.markdown(
+    f"""
+    <style>
+        .stApp {{
+            background-color: {BACKGROUND_COLOR};
+            color: {TEXT_COLOR};
+        }}
+        div[data-testid="stSidebar"] {{
+            background-color: {SIDEBAR_COLOR};
+            color: {TEXT_COLOR};
+        }}
+        div[data-testid="stSidebar"] .stButton>button {{
+            background-color: {BUTTON_COLOR};
+            color: {TEXT_COLOR};
+        }}
+        h1, h2, h3, h4, h5, h6 {{
+            color: {ACCENT_COLOR};
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Muestra el icono en la propia interfaz
 #
 # Paletas de colores disponibles (las mismas que usas)
@@ -49,7 +80,7 @@ st.write(
 
 # --- Controles de Entrada (SideBar) ---
 with st.sidebar:
-    st.image(icon_path, width=80)
+    st.image(icon_path, width=150)
     st.header("Configuración del Análisis")
     st.markdown(
         """
@@ -198,7 +229,10 @@ elif st.session_state.analysis_error:
     st.error(st.session_state.analysis_error)
 else:
     # Mensaje inicial si no se ha ejecutado el análisis
-    st.info("Presiona 'Generar Análisis' en la barra lateral para comenzar. ➡️")
+    st.markdown(
+        f"<p style='color:{TEXT_COLOR};'>Presiona 'Generar Análisis' en la barra lateral para comenzar. ➡️</p>",
+        unsafe_allow_html=True,
+    )
 
 with st.expander("Tipos de Gráficos y Reportes Generados"):
     st.markdown(
