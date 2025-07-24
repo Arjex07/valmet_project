@@ -28,7 +28,7 @@ st.set_page_config(
 
 # Colores de la interfaz
 BACKGROUND_COLOR = "#2F2740"
-SIDEBAR_COLOR = "#140D40"
+SIDEBAR_COLOR = "#594C3C"
 TEXT_COLOR = "#D9CDBF"
 BUTTON_COLOR = "#594C3C"
 ACCENT_COLOR = "#A6998F"
