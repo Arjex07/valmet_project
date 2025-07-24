@@ -29,3 +29,25 @@ Para ejecutar las pruebas automatizadas utiliza:
 ```bash
 pytest tests/test_run_analysis.py
 ```
+
+## Empaquetado
+
+Para distribuir la aplicación como un ejecutable independiente puedes usar
+PyInstaller.
+
+1. Instala PyInstaller:
+
+```bash
+pip install pyinstaller
+```
+
+2. Genera el ejecutable con:
+
+```bash
+pyinstaller --onefile --add-data "icon.png;." main.py
+```
+
+3. El archivo resultante se encuentra en `dist/main.exe`.
+
+PyInstaller empaqueta todas las dependencias, por lo que quien reciba
+`main.exe` no necesitará tener Python instalado para ejecutarlo.
