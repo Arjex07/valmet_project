@@ -57,14 +57,14 @@ st.markdown(
             color: {ACCENT_COLOR};
         }}
         /* Input and file uploader colors */
-        div[data-testid="stTextInput"] input {
+        div[data-testid="stTextInput"] input {{
             background-color: {ACCENT_COLOR};
             color: {SIDEBAR_COLOR};
-        }
-        div[data-testid="stFileUploader"] section label {
+        }}
+        div[data-testid="stFileUploader"] section label {{
             background-color: {ACCENT_COLOR};
             color: {SIDEBAR_COLOR};
-        }
+        }}
     </style>
     """,
     unsafe_allow_html=True,
