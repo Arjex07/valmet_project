@@ -229,7 +229,10 @@ elif st.session_state.analysis_error:
     st.error(st.session_state.analysis_error)
 else:
     # Mensaje inicial si no se ha ejecutado el análisis
-    st.info("Presiona 'Generar Análisis' en la barra lateral para comenzar. ➡️")
+    st.markdown(
+        f"<p style='color:{TEXT_COLOR};'>Presiona 'Generar Análisis' en la barra lateral para comenzar. ➡️</p>",
+        unsafe_allow_html=True,
+    )
 
 with st.expander("Tipos de Gráficos y Reportes Generados"):
     st.markdown(
