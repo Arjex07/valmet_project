@@ -8,8 +8,6 @@ import seaborn as sns
 from windrose import WindroseAxes
 import os
 import zipfile
-import datetime
-import matplotlib.colors
 from matplotlib.colors import BoundaryNorm, Normalize
 from matplotlib.ticker import MaxNLocator
 # from plotly.subplots import make_subplots # No necesario si no usamos Plotly
