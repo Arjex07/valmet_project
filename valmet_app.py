@@ -21,8 +21,12 @@ except ImportError:
 st.set_page_config(
     page_title="VALMET-GUI",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
+    page_icon="icon.png"
 )
+
+# Muestra el icono en la propia interfaz
+st.image("icon.png", width=96)
 
 # Paletas de colores disponibles (las mismas que usas)
 PALETTES = [
