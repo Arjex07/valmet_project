@@ -26,6 +26,17 @@ st.set_page_config(
 )
 
 # Muestra el icono en la propia interfaz
+# Estilos simples para una apariencia más limpia
+st.markdown(
+    """
+    <style>
+        .main { background-color: #F7F7F7; }
+        h1 { color: #4CAF50; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.image("icon.png", width=96)
 
 # Paletas de colores disponibles (las mismas que usas)
@@ -37,16 +48,29 @@ PALETTES = [
 # --- Título y Descripción ---
 st.markdown(
     """
-    # 📈 VALMET-GUI
-    ### *Validación Automática de Lecturas de METeorología*
+    <h1 style='text-align:center;'>📈 VALMET-GUI</h1>
+    <h3 style='text-align:center;'>Validación Automática de Lecturas de METeorología</h3>
+    """,
+    unsafe_allow_html=True,
+)
 
-    Sube tu archivo CSV de datos meteorológicos horarios para generar un completo conjunto de gráficos y un informe resumen.
-    """
+st.write(
+    "Sube tu archivo CSV de datos meteorológicos horarios para generar un conjunto completo de gráficos y un informe resumen."
 )
 
 # --- Controles de Entrada (SideBar) ---
 with st.sidebar:
+    st.image("icon.png", width=80)
     st.header("Configuración del Análisis")
+    st.markdown(
+        """
+        **Instrucciones**
+        1. Sube un archivo CSV con las columnas `date`, `ws`, `wd` y `temp_K`.
+        2. Ingresa un título descriptivo para tu proyecto.
+        3. Selecciona la paleta de colores que prefieras.
+        4. Pulsa **Generar Análisis** para procesar los datos.
+        """
+    )
     file_input = st.file_uploader(
         "1. Sube tu archivo CSV (requiere columnas 'date', 'ws', 'wd', 'temp_K' y opcionalmente 'mixing_height_m')",
         type=["csv"]
