@@ -49,6 +49,10 @@ st.markdown(
             background-color: {BUTTON_COLOR};
             color: {TEXT_COLOR};
         }}
+        div[data-testid="stSidebar"] select,
+        div[data-testid="stSidebar"] select option {{
+            color: {SIDEBAR_COLOR};
+        }}
         h1, h2, h3, h4, h5, h6 {{
             color: {ACCENT_COLOR};
         }}
