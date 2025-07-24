@@ -46,9 +46,17 @@ st.markdown(
             background-color: {SIDEBAR_COLOR};
             color: {TEXT_COLOR};
         }}
+        div[data-testid="stSidebar"] img {{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }}
         div[data-testid="stSidebar"] .stButton>button {{
             background-color: {BUTTON_COLOR};
             color: {TEXT_COLOR};
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }}
         div[data-testid="stSidebar"] .stFileUploader span {{
             color: {FILE_TEXT_COLOR};
@@ -119,23 +127,8 @@ with st.sidebar:
         index=PALETTES.index("viridis") # Valor por defecto
     )
 
-    st.markdown(
-        """
-        <style>
-        div[data-testid="stSidebar"] img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        div[data-testid="stSidebar"] .stButton > button {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
+    # Estilos para centrar el logotipo y el botón en la barra lateral
+    # se aplican en el bloque de estilos principal
 
     run_button = st.button("🚀 Generar Análisis")
 
