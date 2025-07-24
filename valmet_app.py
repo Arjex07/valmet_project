@@ -37,7 +37,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.image("icon.png", width=96)
+
 
 # Paletas de colores disponibles (las mismas que usas)
 PALETTES = [
@@ -60,7 +60,10 @@ st.write(
 
 # --- Controles de Entrada (SideBar) ---
 with st.sidebar:
-    st.image("icon.png", width=80)
+    st.markdown(
+        "<div style='text-align:center'><img src='icon.png' width='80'></div>",
+        unsafe_allow_html=True,
+    )
     st.header("Configuración del Análisis")
     st.markdown(
         """

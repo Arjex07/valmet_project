@@ -404,7 +404,7 @@ def generate_summary_table(df, output_dir, project_title):
                     body {{ font-family: sans-serif; color: white; background-color: #2F2740; }}
                     h2 {{ color: white; }}
                     table {{ width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9em; }}
-                    th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
+                    th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; color: black; }}
                     th {{ background-color: #f2f2f2; }}
                     .table-striped tbody tr:nth-of-type(odd) {{ background-color: rgba(0,0,0,.05); }}
                 </style>
