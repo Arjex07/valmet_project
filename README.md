@@ -19,6 +19,9 @@ Lanza la interfaz de Streamlit con:
 streamlit run valmet_app.py
 ```
 
+La interfaz utiliza un tema oscuro personalizado. Si deseas cambiarlo puedes
+editar los colores en `.streamlit/config.toml`.
+
 ## Pruebas
 
 Para ejecutar las pruebas automatizadas utiliza:
