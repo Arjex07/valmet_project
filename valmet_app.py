@@ -3,6 +3,7 @@ import streamlit as st
 import os
 import sys
 from datetime import datetime
+import shutil
 
 # Asegura que Python encuentre valmet_analisis.py
 # Añadimos la ruta absoluta para mayor robustez, aunque 'sys.path.append('.')' ya ayuda
@@ -16,6 +17,31 @@ try:
 except ImportError:
     st.error("Error: No se pudo importar 'valmet_analisis.py'. Asegúrate de que el archivo exista en la misma carpeta.")
     st.stop() # Detiene la ejecución de la app si no se puede importar la función
+
+
+def cleanup_previous_outputs(base_dir: str) -> None:
+    """Elimina carpetas y archivos previos en la ruta dada."""
+    if os.path.exists(base_dir):
+        for name in os.listdir(base_dir):
+            path = os.path.join(base_dir, name)
+            if os.path.isdir(path):
+                shutil.rmtree(path, ignore_errors=True)
+            else:
+                try:
+                    os.remove(path)
+                except OSError:
+                    pass
+
+
+def cleanup_generated_files(zip_path: str, output_dir: str) -> None:
+    """Elimina el ZIP generado y su carpeta de resultados."""
+    if zip_path and os.path.exists(zip_path):
+        try:
+            os.remove(zip_path)
+        except OSError:
+            pass
+    if output_dir and os.path.exists(output_dir):
+        shutil.rmtree(output_dir, ignore_errors=True)
 
 
 # --- Configuración de la App Streamlit ---
@@ -142,13 +168,16 @@ if 'zip_download_path' not in st.session_state:
     st.session_state.zip_download_path = None
 if 'summary_html_content' not in st.session_state:
     st.session_state.summary_html_content = None
+if 'output_dir_path' not in st.session_state:
+    st.session_state.output_dir_path = None
 
 
 if run_button:
-    st.session_state.analysis_run_completed = False # Reinicia el estado al presionar el botón
+    st.session_state.analysis_run_completed = False  # Reinicia el estado al presionar el botón
     st.session_state.analysis_error = None
     st.session_state.zip_download_path = None
     st.session_state.summary_html_content = None
+    st.session_state.output_dir_path = None
 
     if file_input is not None and project_title_input:
         with st.spinner("Analizando datos y generando gráficos... Esto puede tardar unos minutos."):
@@ -167,10 +196,11 @@ if run_button:
                 # Puedes considerar unificarla si quieres que valmet_analisis.py también maneje la creación de la base
                 # Por ahora, la mantenemos aquí para que la app controle el directorio base.
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-                output_results_base = os.path.join(current_dir, "VALMET_OUTPUT") # Usar el nombre base del módulo
+                output_results_base = os.path.join(current_dir, "VALMET_OUTPUT")  # Usar el nombre base del módulo
                 os.makedirs(output_results_base, exist_ok=True)
-                output_directory = os.path.join(output_results_base, f"analisis_{timestamp}") # Consistente con el nombre de la función en valmet_analisis
-                os.makedirs(output_directory, exist_ok=True) # Asegura que la carpeta exista
+                cleanup_previous_outputs(output_results_base)
+                output_directory = os.path.join(output_results_base, f"analisis_{timestamp}")  # Consistente con el nombre de la función en valmet_analisis
+                os.makedirs(output_directory, exist_ok=True)  # Asegura que la carpeta exista
 
                 # Llama a tu función de análisis desde valmet_analisis.py
                 # La función run_analysis debe devolver la ruta del ZIP y el contenido HTML
@@ -184,6 +214,7 @@ if run_button:
                 if zip_file_path:
                     st.session_state.zip_download_path = zip_file_path
                     st.session_state.summary_html_content = summary_html_content
+                    st.session_state.output_dir_path = output_directory
                     st.session_state.analysis_run_completed = True
                     st.success("Análisis completado exitosamente! 🎉")
                 else:
@@ -215,12 +246,14 @@ if st.session_state.analysis_run_completed:
     # Archivo ZIP descargable
     if st.session_state.zip_download_path and os.path.exists(st.session_state.zip_download_path):
         with open(st.session_state.zip_download_path, "rb") as f:
-            st.download_button(
+            downloaded = st.download_button(
                 label="⬇️ Descargar Todos los Gráficos y Reportes (ZIP)",
                 data=f.read(),
                 file_name=os.path.basename(st.session_state.zip_download_path),
                 mime="application/zip"
             )
+        if downloaded:
+            cleanup_generated_files(st.session_state.zip_download_path, st.session_state.output_dir_path)
     else:
         st.error(f"No se encontró el archivo ZIP de resultados. Path: {st.session_state.zip_download_path} 😟")
 
