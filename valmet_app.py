@@ -158,6 +158,10 @@ with st.sidebar:
 
     run_button = st.button("🚀 Generar Análisis")
 
+    st.markdown(
+        "Desarrollado por [José Chávez Pérez](https://www.linkedin.com/in/jose-chavez-perez/)"
+    )
+
 # --- Lógica del Botón y Salida ---
 # Usamos un estado de sesión para mostrar los resultados solo después de que se generen
 if 'analysis_run_completed' not in st.session_state:
