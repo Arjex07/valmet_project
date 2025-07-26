@@ -47,7 +47,7 @@ def cleanup_generated_files(zip_path: str, output_dir: str) -> None:
 
 # --- Configuración de la App Streamlit ---
 st.set_page_config(
-    page_title="VALMET-GUI",
+    page_title="VALMET",
     layout="wide",
     initial_sidebar_state="expanded",
     page_icon=icon_path
@@ -116,7 +116,7 @@ PALETTES = [
 # --- Título y Descripción ---
 st.markdown(
     """
-    <h1 style='text-align:center;'>📈 VALMET-GUI</h1>
+    <h1 style='text-align:center;'>🌬️VALMET</h1>
     <h3 style='text-align:center;'>Validación Automática de Lecturas de METeorología</h3>
     """,
     unsafe_allow_html=True,
