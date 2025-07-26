@@ -11,6 +11,7 @@ current_dir = os.path.dirname(__file__)
 if current_dir not in sys.path:
     sys.path.append(current_dir)
 icon_path = os.path.join(current_dir, "icon.png")
+example_csv_path = os.path.join(current_dir, "Estacion_x_modelada.csv")
 
 try:
     from valmet_analisis import run_analysis
@@ -132,23 +133,32 @@ with st.sidebar:
     st.markdown(
         """
         **Instrucciones**
-        1. Sube un archivo CSV con las columnas `date`, `ws`, `wd` y `temp_K`.
-        2. Ingresa un título descriptivo para tu proyecto.
-        3. Selecciona la paleta de colores que prefieras.
-        4. Pulsa **Generar Análisis** para procesar los datos.
+        1. Descarga el archivo de ejemplo `Estacion_x_modelada.csv` si deseas revisar el formato de los datos.
+        2. Sube un archivo CSV con las columnas `date`, `ws`, `wd` y `temp_K`.
+        3. Ingresa un título descriptivo para tu proyecto.
+        4. Selecciona la paleta de colores que prefieras.
+        5. Pulsa **Generar Análisis** para procesar los datos.
         """
     )
+    if os.path.exists(example_csv_path):
+        with open(example_csv_path, "rb") as example_file:
+            st.download_button(
+                label="⬇️ Descargar CSV de Ejemplo",
+                data=example_file.read(),
+                file_name="Estacion_x_modelada.csv",
+                mime="text/csv",
+            )
     file_input = st.file_uploader(
         "Arrastra y suelta el archivo aquí\nLímite 200MB por archivo • CSV",
         type=["csv"],
         help="1. Sube tu archivo CSV (requiere columnas 'date', 'ws', 'wd', 'temp_K' y opcionalmente 'mixing_height_m')"
     )
     project_title_input = st.text_input(
-        "2. Título para el Análisis",
+        "3. Título para el Análisis",
         placeholder="Ej: Análisis Estación Maipo"
     )
     palette_dropdown = st.selectbox(
-        "3. Elige una Paleta de Colores para los Gráficos",
+        "4. Elige una Paleta de Colores para los Gráficos",
         options=PALETTES,
         index=PALETTES.index("viridis") # Valor por defecto
     )
